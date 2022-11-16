@@ -118,6 +118,50 @@ func GetCountByPeriod(time string) (string, error) {
 }
 
 // Média de pessoas que viajam para um determinado país
-func AverageDestination(destination string, total int) (int, error) {
+func AverageDestination() (int, error) {
+
+	paises := make(map[string]int)
+
+	f, _ := os.Open("tickets.csv")
+	r := csv.NewReader(f)
+
+	count := 0
+
+	for {
+
+		record, err := r.Read()
+		if err == io.EOF {
+			break
+		}
+
+		id, _ := strconv.Atoi(record[0])
+		preco, _ := strconv.ParseFloat(record[5], 8)
+		ticket := Ticket{
+			Id:          id,
+			Nome:        record[1],
+			Email:       record[2],
+			PaisDestino: record[3],
+			HoraVoo:     record[4],
+			Preco:       preco,
+		}
+
+		if paises[ticket.PaisDestino] == 0 {
+			paises[ticket.PaisDestino]++
+		} else {
+			paises[ticket.PaisDestino]++
+		}
+
+		count++
+
+	}
+
+	media := count / len(paises)
+	// fmt.Println(len(paises))
+	// fmt.Println(count)
+
+	fmt.Println("Média:", media)
+
+	// message := fmt.Sprintf("Média de viagens %s: %d", time, count)
+
 	return 0, nil
 }
