@@ -3,8 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/bootcamp-go/desafio-go-bases/internal/tickets"
-	// "github.com/marcosspano/desafio-go-bases/tree/main/internal/tickets"
+	"github.com/marcosspano/desafio-go-bases/tree/main/internal/tickets/internal/tickets"
 )
 
 func main() {
