@@ -118,7 +118,7 @@ func GetCountByPeriod(time string) (string, error) {
 }
 
 // Média de pessoas que viajam para um determinado país
-func AverageDestination() (int, error) {
+func AverageDestination() (string, error) {
 
 	paises := make(map[string]int)
 
@@ -156,12 +156,8 @@ func AverageDestination() (int, error) {
 	}
 
 	media := count / len(paises)
-	// fmt.Println(len(paises))
-	// fmt.Println(count)
 
-	fmt.Println("Média:", media)
+	message := fmt.Sprintf("Média de viagens: %d", media)
 
-	// message := fmt.Sprintf("Média de viagens %s: %d", time, count)
-
-	return 0, nil
+	return message, nil
 }

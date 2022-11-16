@@ -23,5 +23,7 @@ func main() {
 	messageTotalPeriodo, _ := tickets.GetCountByPeriod("tarde")
 	fmt.Println(messageTotalPeriodo)
 
-	tickets.AverageDestination()
+	messageMediaViagens, _ := tickets.AverageDestination()
+	fmt.Println(messageMediaViagens)
+
 }
